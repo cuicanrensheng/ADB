@@ -1,9 +1,16 @@
 pluginManagement {
     repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
+        google()                // 必须包含，用于下载 Android 插件
+        mavenCentral()          // 必须包含，用于下载依赖库
+        gradlePluginPortal()    // 必须包含，用于下载 Gradle 插件本身
     }
 }
-rootProject.name = "ADBLogCollector"
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "My Application" // 替换为你的项目名
 include ':app'
