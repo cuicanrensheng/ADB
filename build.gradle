@@ -1,9 +1,4 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.7.0'
-    }
+// 全部删掉，只用这个空的
+plugins {
+    // 留空
 }
