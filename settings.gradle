@@ -1,8 +1,8 @@
 pluginManagement {
     repositories {
-        google()                // 必须包含，用于下载 Android 插件
-        mavenCentral()          // 必须包含，用于下载依赖库
-        gradlePluginPortal()    // 必须包含，用于下载 Gradle 插件本身
+        google()
+        mavenCentral()
+        gradlePluginPortal()
     }
 }
 dependencyResolutionManagement {
@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "ADB" // 替换为你的项目名
+rootProject.name = "ADB"
 include ':app'
