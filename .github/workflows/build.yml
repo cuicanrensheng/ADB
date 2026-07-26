@@ -24,7 +24,7 @@ jobs:
       # 🔥 这里已经改成了 wget 下载压缩包，绝对不会再弹窗要求输入账号密码！
       - name: 下载并编译 adb 库源码
         run: |
-          wget https://github.com/tananaev/adb/archive/refs/tags/v2.1.tar.gz
+          wget https://github.com/tananaev/adb/archive/refs/tags/2.1.tar.gz
           tar -xzf v2.1.tar.gz
           cd adb-2.1
           ./gradlew jar
