@@ -21,17 +21,17 @@ jobs:
         with:
           gradle-version: "8.9"
 
-      # 🔥 新增步骤：动态编译 adb.jar 并复制到 app/libs/ 目录
-      - name: 克隆并编译 adb 库源码
+      # 🔥 这里已经改成了 wget 下载压缩包，绝对不会再弹窗要求输入账号密码！
+      - name: 下载并编译 adb 库源码
         run: |
-          git clone https://github.com/tananaev/adb.git
-          cd adb
+          wget https://github.com/tananaev/adb/archive/refs/tags/v2.1.tar.gz
+          tar -xzf v2.1.tar.gz
+          cd adb-2.1
           ./gradlew jar
           mkdir -p ../app/libs
           cp build/libs/adb-*.jar ../app/libs/adb-2.1.jar
           cd ..
 
-      # 🔥 编译你的主项目 APK
       - name: 编译Release包
         run: gradle assembleRelease
 
