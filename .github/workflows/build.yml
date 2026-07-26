@@ -16,13 +16,15 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Setup Gradle 8.7
+      # 🔥 关键修改点：把 8.7 改成了 8.9，和你的 gradle-wrapper.properties 保持一致
+      - name: Setup Gradle 8.9
         uses: gradle/actions/setup-gradle@v3
         with:
-          gradle-version: "8.7"
+          gradle-version: "8.9"
 
+      # 🔥 建议使用 ./gradlew 来确保 wrapper 生效，或者直接用 gradle 也可以
       - name: 编译Release包
-        run: gradle assembleRelease
+        run: ./gradlew assembleRelease
 
       - name: 上传APK
         uses: actions/upload-artifact@v4
