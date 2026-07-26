@@ -16,16 +16,16 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: 安装Ubuntu系统全局Gradle
-        run: |
-          sudo apt update -y
-          sudo apt install gradle -y
-          gradle --version
+      # 自动下载Gradle 8.7，不用系统apt旧版gradle
+      - name: Setup Gradle 8.7
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: "8.7"
 
-      - name: 编译Release安装包
+      - name: 编译Release包
         run: gradle assembleRelease
 
-      - name: 上传APK成品
+      - name: 上传APK
         uses: actions/upload-artifact@v4
         with:
           name: ADB日志助手-APK
