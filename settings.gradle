@@ -1,19 +1,17 @@
 pluginManagement {
     repositories {
-        // 优先项目本地仓库，再走官方源
-        maven { url "./repo" }
         google()
         mavenCentral()
         gradlePluginPortal()
     }
 }
 dependencyResolutionManagement {
-    // 全局统一使用 settings 仓库，消除冲突
-    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        maven { url "./repo" }
         google()
         mavenCentral()
+        // 🔥 必须有下面这一行，它是找到 adb 库的关键！
+        maven { url 'https://jitpack.io' }
     }
 }
 rootProject.name = "ADB"
