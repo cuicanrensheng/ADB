@@ -26,5 +26,5 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.tananaev:adb:2.1' 
+    implementation 'com.github.tananaev:adb:v2.1' 
 }
