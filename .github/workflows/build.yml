@@ -21,7 +21,17 @@ jobs:
         with:
           gradle-version: "8.9"
 
-      # ⚠️ 注意看这里，我去掉了前面的 ./
+      # 🔥 新增步骤：动态编译 adb.jar 并复制到 app/libs/ 目录
+      - name: 克隆并编译 adb 库源码
+        run: |
+          git clone https://github.com/tananaev/adb.git
+          cd adb
+          ./gradlew jar
+          mkdir -p ../app/libs
+          cp build/libs/adb-*.jar ../app/libs/adb-2.1.jar
+          cd ..
+
+      # 🔥 编译你的主项目 APK
       - name: 编译Release包
         run: gradle assembleRelease
 
