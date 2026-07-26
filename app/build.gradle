@@ -26,5 +26,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.tananaev:adb:v2.1' 
+    // 🔥 必须是 2.1，绝对不能带 v
+    implementation 'com.github.tananaev:adb:2.1'
 }
